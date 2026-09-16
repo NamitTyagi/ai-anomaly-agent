@@ -1,230 +1,372 @@
 # AI Anomaly Agent
 
-An automated e-commerce monitoring agent built around the **Brazilian E-Commerce Public Dataset by Olist**. It converts raw order, item and review data into daily business KPIs, detects unusual movement with a seasonality- and trend-aware statistical baseline, corroborates alerts with an Isolation Forest, and generates explainable business context from related KPIs.
+> Explainable e-commerce anomaly detection using seasonality-aware statistics, machine learning, and cross-metric business context.
 
-The goal is not another static dashboard. The project answers a practical monitoring problem:
+[![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)](https://www.python.org/)
+[![Scikit-learn](https://img.shields.io/badge/ML-Isolation%20Forest-orange)](https://scikit-learn.org/)
+[![GitHub Actions](https://img.shields.io/badge/Automation-GitHub%20Actions-black?logo=github)](https://github.com/features/actions)
 
-> **Can an analytics team automatically surface unusual changes in daily e-commerce performance and tell an analyst what other business signals moved with the anomaly?**
+### 🚀 [Live Dashboard](https://namittyagi.github.io/ai-anomaly-agent/)
 
-The Olist dataset contains about 100,000 anonymized orders from 2016–2018, including order status, item prices, freight and customer reviews. The public dataset is documented by Olist on Kaggle. See the source links below.
+An end-to-end analytics monitoring system built around the **Brazilian E-Commerce Public Dataset by Olist**.
 
-## Business problem
+The system transforms raw e-commerce data into daily business KPIs, detects unusual movements using a seasonality-aware statistical baseline, uses Isolation Forest as an independent ML signal, and provides explainable business context from related KPIs.
 
-An e-commerce analyst should not have to manually inspect yesterday's dashboard every morning looking for strange movement.
+---
 
-The agent monitors KPIs such as:
+## 📊 Dashboard
 
-- Revenue
-- Orders
-- Average Order Value
-- Freight Cost
-- Late Delivery Days
-- Review Score
-- Cancelled Orders
+![AI Anomaly Agent Dashboard](docs/dashboard.png)
 
-It asks:
+The dashboard monitors **614 days of e-commerce activity across 7 business KPIs** and highlights unusual movements for investigation.
 
-1. Is today's value unusual **for this weekday**?
-2. Is the anomaly severe enough to alert on?
-3. Did related KPIs move at the same time?
-4. Does the machine-learning layer independently support the signal?
-5. Has this exact metric/weekday combination generated noisy alerts before?
+---
 
-## Architecture
+## 🎯 Business Problem
 
-```text
-Olist public CSV data
-        |
-        v
-download_olist_data.py
-        |
-        v
-olist_pipeline.py
-(raw orders/items/reviews -> daily KPIs)
-        |
-        v
-Seasonality-aware statistical detector
-        |
-        +----> Isolation Forest ML support
-        |
-        v
-Cross-metric business context
-        |
-        v
-SQLite alert history + feedback loop
-        |
-        +----> dashboard_data.json -> dashboard.html
-        |
-        v
-GitHub Actions -> refresh raw data -> rebuild KPIs -> detect -> dashboard
-```
+E-commerce teams monitor multiple KPIs every day, but manually identifying unusual changes can be time-consuming.
 
-## Why the anomaly detector is interesting
+This project asks:
 
-A naive monitoring rule such as `value > 7-day average` can flag normal weekday/weekend behavior repeatedly. This project compares each observation with **past observations from the same weekday**, fits a local trend to that history, and refuses to make a decision until enough history exists.
+- Which KPIs are behaving unusually?
+- How unusual is the movement compared with historical behavior?
+- Are multiple KPIs moving together?
+- Does the evidence suggest a demand, fulfillment, or customer-experience issue?
+- Which anomalies require investigation?
 
-The primary detector is intentionally transparent and conservative: it uses a robust residual scale plus a minimum relative-change gate to reduce alert noise on trending, sparse business data. The Isolation Forest is a second opinion, not a black-box replacement for the alert rule.
+The goal is to move from **"something looks strange"** to a structured and explainable monitoring signal.
 
-The explanation layer also avoids inventing causes. It uses observed relationships between KPIs, for example:
+---
 
-- Revenue + Orders moving together → broad demand movement
-- Freight + Late Delivery Days moving together → fulfillment pressure
-- Review Score falling while delivery delays rise → customer-experience signal
-- Cancellations rising while Orders fall → order-health signal
+## ✨ Key Features
 
-## Data source
+- Seasonality-aware anomaly detection
+- Weekday-specific historical baselines
+- Trend-aware residual analysis
+- Isolation Forest ML support layer
+- Cross-metric business context
+- Explainable anomaly summaries
+- SQLite alert history
+- Alert feedback mechanism
+- Automated regression tests
+- Automated dashboard generation
+- GitHub Actions workflow
+- Reproducible data pipeline
 
-Olist publishes the **Brazilian E-Commerce Public Dataset** as anonymized commercial data. It contains roughly 100,000 orders and multiple related tables covering orders, items, payments, customers, reviews, products and sellers.
+---
 
-- Kaggle dataset: https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
-- Olist public data repository used by this project: https://github.com/olist/work-at-olist-data
+## 📈 KPIs Monitored
 
-The project downloads only the three raw tables required for its current KPI layer: orders, order items and reviews. The raw dataset is **not committed to this repository** because it is unnecessary for the codebase and can be downloaded reproducibly.
+The pipeline converts raw Olist data into daily business metrics:
 
-## Run locally
+| KPI | Business Signal |
+|---|---|
+| Revenue | Overall sales performance |
+| Orders | Demand activity |
+| Average Order Value | Customer purchase value |
+| Freight Cost | Fulfillment cost |
+| Late Delivery Days | Delivery performance |
+| Review Score | Customer experience |
+| Cancelled Orders | Order health |
 
-### 1. Install dependencies
+---
 
-```bash
-pip install -r requirements.txt
-```
+## 🧠 Detection Approach
 
-### 2. Download the public Olist data
+### 1. Seasonality-Aware Statistical Detection
 
-```bash
-python download_olist_data.py
-```
+A simple rolling average can repeatedly flag normal weekday/weekend behavior.
 
-This creates:
+Instead, the system compares observations with historical values from the **same weekday**, while also accounting for local trend.
 
-```text
-data/
-└── raw/
-    ├── olist_orders_dataset.csv
-    ├── olist_order_items_dataset.csv
-    └── olist_order_reviews_dataset.csv
-```
+The detector uses:
 
-### 3. Build the KPI layer
+- Historical same-weekday observations
+- Robust residual scaling
+- Minimum relative-change thresholds
+- Minimum history requirements
 
-```bash
-python olist_pipeline.py
-```
+This makes the alert logic more transparent and reduces noisy alerts.
 
-This creates:
+### 2. Isolation Forest
+
+An **Isolation Forest** provides an independent machine-learning signal.
+
+It is used as a supporting layer rather than replacing the statistical detector.
+
+This gives the system two perspectives:
 
 ```text
-data/processed/olist_daily_metrics.csv
-```
+Statistical baseline
+        +
+Isolation Forest
+        ↓
+Anomaly evidence
 
-### 4. Run the anomaly agent
+3. Cross-Metric Business Context
 
-```bash
-python anomaly_agent.py
-```
+The system checks whether related KPIs moved on the same day.
 
-### 5. Build the dashboard
+Examples:
 
-```bash
-python build_dashboard.py
-```
+Revenue + Orders
+        ↓
+Demand signal
 
-Then open **`dashboard.html`** in Chrome.
+Freight Cost + Late Delivery Days
+        ↓
+Fulfillment signal
 
-### 6. Run regression tests
+Review Score + Late Delivery Days
+        ↓
+Customer-experience signal
 
-```bash
-python test_agent.py
-```
+Cancelled Orders + Orders
+        ↓
+Order-health signal
 
-The tests use a small Olist-shaped fixture, so you can verify the transformation and anomaly logic without downloading the full dataset.
+The system does not claim these relationships prove the root cause.
 
-## Alert feedback loop
+They provide evidence that helps an analyst decide where to investigate.
 
-Alerts are stored in `alerts.db`.
+🏗️ Architecture
+Olist Public Dataset
+        |
+        v
+Download Raw Data
+        |
+        v
+Daily KPI Transformation
+        |
+        v
+Seasonality-Aware Detector
+        |
+        +--------> Isolation Forest
+        |
+        v
+Cross-Metric Context
+        |
+        v
+Business Explanation
+        |
+        v
+SQLite Alert History
+        |
+        v
+Dashboard Data
+        |
+        v
+Interactive Dashboard
+        |
+        v
+GitHub Actions
+🗂️ Dataset
 
-```bash
+This project uses the Brazilian E-Commerce Public Dataset by Olist.
+
+The dataset contains approximately 100,000 anonymized orders from the Brazilian e-commerce marketplace and includes information about orders, products, sellers, freight, payments, and customer reviews.
+
+Only the following source tables are currently required for the KPI pipeline:
+
+Orders
+Order Items
+Order Reviews
+
+The raw dataset is not committed to this repository. It is downloaded by the pipeline so the project remains reproducible without storing large raw files in Git.
+
+Dataset Sources
+Olist Brazilian E-Commerce Public Dataset
+Olist Public Data Repository
+📊 Results
+
+The current pipeline processes:
+
+614 days of e-commerce activity
+7 business KPIs
+183 detected anomalies
+115 days containing flagged activity
+31 anomalies with cross-metric business context
+
+The dashboard allows the analyst to switch between KPIs and inspect different time windows.
+
+Available windows:
+
+90 days
+120 days
+180 days
+Full dataset
+🔄 Alert Feedback Loop
+
+Detected alerts are stored in SQLite.
+
+An analyst can provide feedback such as:
+
 python anomaly_agent.py --feedback 14 false_positive
 python anomaly_agent.py --feedback 14 reviewed
-```
 
-If the same metric/weekday combination is marked false-positive enough times, the detector raises the threshold for that combination. Alert writes are idempotent, so rerunning the same dataset does not duplicate alerts.
+Repeated false-positive feedback can increase the threshold for a specific metric/weekday combination.
 
-## Dashboard
+Alert writes are idempotent, so rerunning the same dataset does not continuously create duplicate alerts.
 
-The dashboard is deliberately custom-built rather than dependent on Power BI or Tableau:
+🌐 Dashboard
 
-- HTML/CSS for the interface
-- JavaScript for interaction
-- Canvas API for the time-series chart
-- JSON generated by Python as the data contract
+The dashboard is custom-built rather than dependent on Power BI or Tableau.
 
-That keeps the demo portable: the final dashboard is a single standalone HTML file.
+Frontend
+HTML
+CSS
+JavaScript
+Canvas-based visualization
+Data Layer
 
-## GitHub Actions
+Python generates a JSON data contract consumed by the dashboard.
 
-`.github/workflows/daily_check.yml` can run the full pipeline automatically:
+This keeps the demonstration portable and allows the dashboard to be generated automatically as part of the pipeline.
 
-```text
+Live Demo
+
+👉 Open the Live Dashboard
+
+⚙️ Automated Workflow
+
+GitHub Actions can execute the monitoring pipeline automatically:
+
 Download public Olist data
         ↓
 Build daily KPI layer
         ↓
-Run anomaly detector
+Run anomaly detection
         ↓
-Rebuild dashboard
+Generate dashboard
         ↓
-Commit refreshed outputs
-```
+Run validation checks
+        ↓
+Deploy dashboard
 
-The workflow is a reproducible monitoring demo. Olist is a historical dataset, so this should be described as **scheduled reprocessing of public historical data**, not as a claim that the project receives a live production feed.
+Because Olist is a historical dataset, the workflow demonstrates scheduled reproducible reprocessing, not a live production data feed.
 
-## What's real vs. deliberately simple
+📁 Project Structure
+ai-anomaly-agent/
+│
+├── .github/
+│   └── workflows/
+│       ├── daily_check.yml
+│       └── pages.yml
+│
+├── data/
+│   ├── raw/
+│   └── processed/
+│
+├── docs/
+│   └── dashboard.png
+│
+├── alert_store.py
+├── anomaly_agent.py
+├── build_dashboard.py
+├── config.yaml
+├── download_olist_data.py
+├── ml_anomaly.py
+├── olist_pipeline.py
+├── run_all.py
+├── test_agent.py
+├── dashboard.html
+├── dashboard_data.json
+├── index.html
+├── requirements.txt
+└── README.md
+🚀 Run Locally
+1. Install dependencies
+pip install -r requirements.txt
+2. Download the Olist dataset
+python download_olist_data.py
+3. Build daily KPIs
+python olist_pipeline.py
+4. Run anomaly detection
+python anomaly_agent.py
+5. Build the dashboard
+python build_dashboard.py
 
-**Real:**
+Then open:
 
-- Public anonymized commercial dataset from Olist
-- Actual multi-table data transformation
-- Seasonality-aware statistical detection
-- Isolation Forest ML support
-- SQLite alert history and feedback
-- Automated reproducible pipeline
-- Custom interactive dashboard
+dashboard.html
 
-**Deliberately simple:**
+in a browser.
 
-- KPI layer currently uses three Olist source tables
-- Cross-metric explanations are deterministic business rules, not an LLM
-- SQLite is the alert store rather than a production warehouse
-- GitHub Actions demonstrates scheduled orchestration rather than a live streaming system
+Or run the complete pipeline
+python run_all.py
 
-## Possible future extensions
+This runs the complete workflow and executes the regression checks.
 
-- Add payments and seller tables for richer KPIs
-- Add category/seller-level anomaly drill-down
-- Add an optional LLM explanation layer fed only with structured evidence
-- Add an actual warehouse/API as the data source
-- Add trend-adjusted baselines such as EWMA
-- Add email/Slack delivery through GitHub Actions secrets
+🧪 Testing
 
-## Interview talking points
+The project includes automated regression tests using an Olist-shaped test fixture.
 
-**Why not just use Power BI?**
+Run:
 
-> "The point was to build the monitoring logic itself. The dashboard is only the presentation layer. Python transforms raw business data, detects anomalies, corroborates them with ML, stores alert history and generates the dashboard automatically."
+python test_agent.py
 
-**Why same-weekday baselines?**
+The tests validate the transformation and anomaly-detection logic without requiring the complete raw dataset.
 
-> "A generic rolling average treated normal weekend behavior as anomalous. Comparing Monday with previous Mondays made the baseline much more representative and explainable."
+🛠️ Tech Stack
+Data & Machine Learning
+Python
+Pandas
+NumPy
+Scikit-learn
+Storage
+SQLite
+CSV
+JSON
+Dashboard
+HTML
+CSS
+JavaScript
+Canvas API
+Automation & Deployment
+GitHub Actions
+GitHub Pages
+⚠️ Limitations
 
-**Why use Isolation Forest if there is already a statistical detector?**
+This project is designed as an analytics monitoring prototype rather than a production monitoring platform.
 
-> "I wanted an independent ML signal without making the alert decision a black box. The statistical rule remains the primary decision and Isolation Forest acts as supporting evidence."
+Current limitations include:
 
-**What business problem does it solve?**
+Historical Olist data rather than a live data source
+Three source tables currently used for KPI generation
+SQLite instead of a production data warehouse
+Deterministic business-context rules instead of an LLM
+Anomaly signals do not prove the underlying root cause
+🔮 Future Improvements
 
-> "It reduces the manual effort of monitoring daily e-commerce KPIs by surfacing unusual changes and showing which related business signals moved with them, so an analyst knows where to investigate first."
+Potential extensions include:
 
+Add payment and seller-level KPIs
+Add category and seller anomaly drill-down
+Add live API or warehouse integration
+Add email or Slack notifications
+Add richer root-cause analysis
+Add EWMA and other adaptive baselines
+Add optional LLM-generated explanations using structured evidence
+Add production model monitoring
+💬 Interview Highlights
+Why not just use Power BI?
 
-### Dashboard readability
-The trend chart defaults to the latest 120 observations, with 90d / 120d / 180d / All controls. The full 614-day dataset remains available to the detector and alert history.
+The goal was to build the monitoring logic itself. The dashboard is the presentation layer; Python handles the data transformation, anomaly detection, ML support, alert history, and dashboard generation.
+
+Why use same-weekday baselines?
+
+A generic rolling average can treat normal weekend behavior as anomalous. Comparing observations with previous observations from the same weekday creates a more representative and explainable baseline.
+
+Why use Isolation Forest?
+
+Isolation Forest provides an independent ML signal without making the final alert decision a complete black box. The statistical detector remains the primary decision layer.
+
+Does the system identify the root cause?
+
+No. It identifies unusual behavior and provides evidence from related KPIs. The contextual signals help an analyst investigate possible causes rather than claiming a proven root cause.
+
+👨‍💻 Author
+
+Namit Tyagi
+
+Computer Science & Engineering — Data Science
