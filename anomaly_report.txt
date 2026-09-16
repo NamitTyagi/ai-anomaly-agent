@@ -1,0 +1,236 @@
+AI Anomaly Agent Report
+Source file: olist_daily_metrics.csv
+Generated: 2026-09-16 22:44
+Statistical anomalies detected: 183
+ML support layer: independent Isolation Forest signal
+--------------------------------------------------
+
+On Thursday, March 02, 2017, Cancelled Orders dropped sharply to 0.00 (-100.0% vs. its typical Thursday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Sunday, March 05, 2017, Cancelled Orders jumped sharply to 2.00 (+6922.6% vs. its typical Sunday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Saturday, March 11, 2017, Cancelled Orders jumped sharply to 1.00 (+467.9% vs. its typical Saturday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Sunday, March 12, 2017, Cancelled Orders jumped sharply to 1.00 (+152.8% vs. its typical Sunday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Friday, March 17, 2017, Late Delivery Days jumped sharply to 2.46 (+221.4% vs. its typical Friday). Higher late-delivery days indicate fulfillment pressure and are worth checking against carrier or seller operations. At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Saturday, March 18, 2017, Cancelled Orders dropped sharply to 0.00 (-100.0% vs. its typical Saturday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Tuesday, March 21, 2017, Cancelled Orders jumped sharply to 4.00 (+765.3% vs. its typical Tuesday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Thursday, March 23, 2017, Cancelled Orders jumped sharply to 1.00 (+253.7% vs. its typical Thursday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Saturday, March 25, 2017, Cancelled Orders jumped sharply to 1.00 (+277.8% vs. its typical Saturday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Sunday, March 26, 2017, Cancelled Orders dropped sharply to 0.00 (-100.0% vs. its typical Sunday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Thursday, March 30, 2017, Cancelled Orders dropped sharply to 0.00 (-100.0% vs. its typical Thursday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Friday, March 31, 2017, Cancelled Orders dropped sharply to 0.00 (-100.0% vs. its typical Friday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Saturday, April 01, 2017, Cancelled Orders dropped sharply to 0.00 (-100.0% vs. its typical Saturday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Thursday, April 06, 2017, Cancelled Orders dropped sharply to 0.00 (-100.0% vs. its typical Thursday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Saturday, April 08, 2017, Cancelled Orders dropped sharply to 0.00 (-100.0% vs. its typical Saturday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Sunday, April 09, 2017, Cancelled Orders jumped sharply to 2.00 (+976.3% vs. its typical Sunday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Friday, April 14, 2017, Cancelled Orders jumped sharply to 3.00 (+561.4% vs. its typical Friday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Tuesday, April 18, 2017, Average Order Value jumped sharply to 299.81 (+144.5% vs. its typical Tuesday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Sunday, April 23, 2017, Cancelled Orders jumped sharply to 2.00 (+574.0% vs. its typical Sunday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Tuesday, April 25, 2017, Cancelled Orders dropped sharply to 0.00 (-100.0% vs. its typical Tuesday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Saturday, May 06, 2017, Cancelled Orders dropped sharply to 0.00 (-100.0% vs. its typical Saturday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Friday, May 12, 2017, Cancelled Orders jumped sharply to 3.00 (+398.9% vs. its typical Friday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Saturday, May 13, 2017, Cancelled Orders jumped sharply to 1.00 (+611.9% vs. its typical Saturday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Thursday, May 18, 2017, Cancelled Orders dropped sharply to 0.00 (-100.0% vs. its typical Thursday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Monday, May 22, 2017, Cancelled Orders dropped sharply to 0.00 (-100.0% vs. its typical Monday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Wednesday, May 24, 2017, Cancelled Orders dropped sharply to 0.00 (-100.0% vs. its typical Wednesday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Thursday, May 25, 2017, Cancelled Orders jumped sharply to 2.00 (+556.8% vs. its typical Thursday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Saturday, May 27, 2017, Cancelled Orders jumped sharply to 3.00 (+1592.9% vs. its typical Saturday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Saturday, June 10, 2017, Cancelled Orders dropped sharply to 0.00 (-100.0% vs. its typical Saturday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Monday, June 12, 2017, Late Delivery Days jumped sharply to 1.88 (+66513.6% vs. its typical Monday). Higher late-delivery days indicate fulfillment pressure and are worth checking against carrier or seller operations. At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Thursday, June 15, 2017, Cancelled Orders jumped sharply to 2.00 (+412.3% vs. its typical Thursday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Wednesday, June 21, 2017, several metrics moved unusually: Orders dropped sharply to 35.00 (-74.6% vs. its typical Wednesday); Revenue dropped sharply to 6,183.65 (-67.0% vs. its typical Wednesday) -- context: demand movement: revenue and order volume moved together; Freight Cost dropped noticeably to 1,087.93 (-63.1% vs. its typical Wednesday). Revenue and order volume moved in the same direction, which supports a broad demand movement rather than a single-metric artifact. At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Sunday, July 02, 2017, Cancelled Orders jumped sharply to 2.00 (+544.1% vs. its typical Sunday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Saturday, July 08, 2017, Cancelled Orders dropped sharply to 0.00 (-100.0% vs. its typical Saturday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Saturday, July 22, 2017, Cancelled Orders dropped sharply to 0.00 (-100.0% vs. its typical Saturday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Saturday, July 29, 2017, Cancelled Orders jumped sharply to 1.00 (+1293.3% vs. its typical Saturday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Thursday, August 03, 2017, Cancelled Orders jumped sharply to 2.00 (+285.9% vs. its typical Thursday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Saturday, August 05, 2017, Cancelled Orders jumped sharply to 1.00 (+376.2% vs. its typical Saturday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Saturday, August 12, 2017, Cancelled Orders jumped sharply to 2.00 (+483.8% vs. its typical Saturday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Sunday, August 13, 2017, Cancelled Orders jumped sharply to 1.00 (+87.4% vs. its typical Sunday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Friday, August 25, 2017, Late Delivery Days jumped sharply to 1.18 (+988.8% vs. its typical Friday). Higher late-delivery days indicate fulfillment pressure and are worth checking against carrier or seller operations. At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Sunday, August 27, 2017, Cancelled Orders dropped sharply to 0.00 (-100.0% vs. its typical Sunday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Tuesday, August 29, 2017, Average Order Value jumped sharply to 246.40 (+107.5% vs. its typical Tuesday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Sunday, September 03, 2017, several metrics moved unusually: Revenue jumped sharply to 27,741.42 (+127.2% vs. its typical Sunday); Average Order Value jumped noticeably to 223.72 (+87.3% vs. its typical Sunday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Saturday, September 16, 2017, Cancelled Orders jumped sharply to 2.00 (+548.6% vs. its typical Saturday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Friday, September 29, 2017, Average Order Value jumped sharply to 266.19 (+116.6% vs. its typical Friday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Tuesday, October 10, 2017, Cancelled Orders jumped sharply to 2.00 (+1228.1% vs. its typical Tuesday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Sunday, October 22, 2017, Late Delivery Days jumped sharply to 1.36 (+480.4% vs. its typical Sunday). Higher late-delivery days indicate fulfillment pressure and are worth checking against carrier or seller operations. At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Tuesday, October 24, 2017, Cancelled Orders jumped sharply to 1.00 (+208.8% vs. its typical Tuesday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Tuesday, October 31, 2017, Cancelled Orders dropped sharply to 0.00 (-100.0% vs. its typical Tuesday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Friday, November 03, 2017, Late Delivery Days dropped sharply to 0.16 (-77.6% vs. its typical Friday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Tuesday, November 07, 2017, Cancelled Orders dropped sharply to 0.00 (-100.0% vs. its typical Tuesday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Tuesday, November 14, 2017, several metrics moved unusually: Cancelled Orders jumped sharply to 4.00 (+2090.3% vs. its typical Tuesday); Late Delivery Days jumped sharply to 2.15 (+350.1% vs. its typical Tuesday). Higher late-delivery days indicate fulfillment pressure and are worth checking against carrier or seller operations. At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Thursday, November 16, 2017, several metrics moved unusually: Late Delivery Days jumped sharply to 1.17 (+301.4% vs. its typical Thursday) -- context: fulfillment pressure: freight cost moved unusually; Freight Cost jumped noticeably to 4,653.06 (+31.2% vs. its typical Thursday) -- context: fulfillment pressure: delivery delay moved unusually. Higher late-delivery days indicate fulfillment pressure and are worth checking against carrier or seller operations. Overall impact assessment: high.
+
+On Wednesday, November 22, 2017, Late Delivery Days jumped sharply to 2.40 (+503.4% vs. its typical Wednesday). Higher late-delivery days indicate fulfillment pressure and are worth checking against carrier or seller operations. At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Thursday, November 23, 2017, several metrics moved unusually: Late Delivery Days jumped sharply to 1.43 (+176.8% vs. its typical Thursday) -- context: fulfillment pressure: freight cost moved unusually; Freight Cost jumped noticeably to 6,758.22 (+75.5% vs. its typical Thursday) -- context: fulfillment pressure: delivery delay moved unusually; Revenue jumped noticeably to 43,563.89 (+70.9% vs. its typical Thursday). Higher late-delivery days indicate fulfillment pressure and are worth checking against carrier or seller operations. Overall impact assessment: high.
+
+On Friday, November 24, 2017, several metrics moved unusually: Orders jumped sharply to 1,166.00 (+687.0% vs. its typical Friday); Freight Cost jumped sharply to 25,865.48 (+625.7% vs. its typical Friday) -- context: fulfillment pressure: delivery delay moved unusually; Revenue jumped sharply to 152,653.74 (+552.7% vs. its typical Friday) -- context: demand movement: revenue and order volume moved together; Late Delivery Days jumped sharply to 1.94 (+180.6% vs. its typical Friday) -- context: fulfillment pressure: freight cost moved unusually. Revenue and order volume moved in the same direction, which supports a broad demand movement rather than a single-metric artifact. Higher late-delivery days indicate fulfillment pressure and are worth checking against carrier or seller operations. At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Saturday, November 25, 2017, several metrics moved unusually: Orders jumped sharply to 499.00 (+306.2% vs. its typical Saturday); Late Delivery Days jumped sharply to 3.02 (+460.7% vs. its typical Saturday) -- context: fulfillment pressure: freight cost moved unusually; Freight Cost jumped sharply to 11,248.08 (+252.8% vs. its typical Saturday) -- context: fulfillment pressure: delivery delay moved unusually; Revenue jumped noticeably to 60,923.48 (+201.1% vs. its typical Saturday) -- context: demand movement: revenue and order volume moved together. Revenue and order volume moved in the same direction, which supports a broad demand movement rather than a single-metric artifact. Higher late-delivery days indicate fulfillment pressure and are worth checking against carrier or seller operations. At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Sunday, November 26, 2017, several metrics moved unusually: Orders jumped sharply to 387.00 (+141.5% vs. its typical Sunday); Freight Cost jumped sharply to 8,267.24 (+136.9% vs. its typical Sunday) -- context: fulfillment pressure: delivery delay moved unusually; Late Delivery Days jumped sharply to 1.98 (+202.4% vs. its typical Sunday) -- context: fulfillment pressure: freight cost moved unusually; Revenue jumped noticeably to 44,976.28 (+115.1% vs. its typical Sunday) -- context: demand movement: revenue and order volume moved together. Revenue and order volume moved in the same direction, which supports a broad demand movement rather than a single-metric artifact. Higher late-delivery days indicate fulfillment pressure and are worth checking against carrier or seller operations. At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Monday, November 27, 2017, several metrics moved unusually: Orders jumped sharply to 400.00 (+110.5% vs. its typical Monday); Freight Cost jumped noticeably to 8,908.49 (+89.8% vs. its typical Monday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Tuesday, November 28, 2017, several metrics moved unusually: Freight Cost jumped sharply to 8,361.92 (+93.5% vs. its typical Tuesday); Orders jumped noticeably to 376.00 (+95.7% vs. its typical Tuesday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Wednesday, November 29, 2017, several metrics moved unusually: Late Delivery Days jumped sharply to 2.62 (+187.1% vs. its typical Wednesday); Orders jumped noticeably to 318.00 (+86.7% vs. its typical Wednesday); Revenue jumped noticeably to 39,787.42 (+81.6% vs. its typical Wednesday) -- context: demand movement: revenue and order volume moved together. Revenue and order volume moved in the same direction, which supports a broad demand movement rather than a single-metric artifact. Higher late-delivery days indicate fulfillment pressure and are worth checking against carrier or seller operations. At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Thursday, December 21, 2017, Freight Cost dropped sharply to 2,906.42 (-46.1% vs. its typical Thursday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Friday, December 22, 2017, several metrics moved unusually: Freight Cost dropped noticeably to 2,272.74 (-64.9% vs. its typical Friday); Orders dropped noticeably to 110.00 (-62.6% vs. its typical Friday); Revenue dropped noticeably to 14,935.30 (-64.7% vs. its typical Friday) -- context: demand movement: revenue and order volume moved together. Revenue and order volume moved in the same direction, which supports a broad demand movement rather than a single-metric artifact. Overall impact assessment: moderate.
+
+On Sunday, December 24, 2017, several metrics moved unusually: Freight Cost dropped sharply to 1,065.52 (-75.8% vs. its typical Sunday); Orders dropped sharply to 58.00 (-72.6% vs. its typical Sunday); Revenue dropped sharply to 5,643.01 (-77.7% vs. its typical Sunday) -- context: demand movement: revenue and order volume moved together. Revenue and order volume moved in the same direction, which supports a broad demand movement rather than a single-metric artifact. At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Monday, December 25, 2017, several metrics moved unusually: Freight Cost dropped sharply to 2,280.89 (-64.7% vs. its typical Monday); Orders dropped noticeably to 90.00 (-68.4% vs. its typical Monday); Revenue dropped noticeably to 10,381.34 (-73.2% vs. its typical Monday) -- context: demand movement: revenue and order volume moved together. Revenue and order volume moved in the same direction, which supports a broad demand movement rather than a single-metric artifact. At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Tuesday, December 26, 2017, Cancelled Orders dropped sharply to 0.00 (-100.0% vs. its typical Tuesday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Wednesday, December 27, 2017, Late Delivery Days dropped sharply to 0.12 (-89.4% vs. its typical Wednesday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Thursday, December 28, 2017, several metrics moved unusually: Revenue dropped noticeably to 15,037.49 (-48.1% vs. its typical Thursday); Freight Cost dropped noticeably to 2,744.56 (-43.7% vs. its typical Thursday). Overall impact assessment: moderate.
+
+On Friday, December 29, 2017, several metrics moved unusually: Freight Cost dropped noticeably to 2,722.93 (-51.7% vs. its typical Friday); Orders dropped noticeably to 133.00 (-48.5% vs. its typical Friday). Overall impact assessment: moderate.
+
+On Sunday, December 31, 2017, several metrics moved unusually: Orders dropped noticeably to 73.00 (-54.8% vs. its typical Sunday); Revenue dropped noticeably to 8,640.87 (-54.8% vs. its typical Sunday) -- context: demand movement: revenue and order volume moved together; Freight Cost dropped noticeably to 1,490.33 (-54.3% vs. its typical Sunday). Revenue and order volume moved in the same direction, which supports a broad demand movement rather than a single-metric artifact. Overall impact assessment: moderate.
+
+On Monday, January 01, 2018, several metrics moved unusually: Revenue dropped sharply to 6,948.21 (-76.5% vs. its typical Monday) -- context: demand movement: revenue and order volume moved together; Orders dropped sharply to 73.00 (-67.6% vs. its typical Monday); Freight Cost dropped sharply to 1,443.71 (-72.6% vs. its typical Monday). Revenue and order volume moved in the same direction, which supports a broad demand movement rather than a single-metric artifact. At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Wednesday, January 24, 2018, Cancelled Orders jumped sharply to 3.00 (+481.7% vs. its typical Wednesday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Friday, January 26, 2018, Cancelled Orders jumped sharply to 3.00 (+2417.5% vs. its typical Friday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Friday, February 02, 2018, Cancelled Orders jumped sharply to 4.00 (+1566.5% vs. its typical Friday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Thursday, February 08, 2018, Cancelled Orders jumped sharply to 4.00 (+520.0% vs. its typical Thursday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Friday, February 09, 2018, Cancelled Orders jumped sharply to 3.00 (+358.5% vs. its typical Friday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Saturday, February 24, 2018, Late Delivery Days jumped sharply to 4.88 (+450.0% vs. its typical Saturday). Higher late-delivery days indicate fulfillment pressure and are worth checking against carrier or seller operations. At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Monday, February 26, 2018, Late Delivery Days jumped sharply to 4.18 (+287.5% vs. its typical Monday). Higher late-delivery days indicate fulfillment pressure and are worth checking against carrier or seller operations. At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Tuesday, February 27, 2018, Late Delivery Days jumped sharply to 3.61 (+491.9% vs. its typical Tuesday). Higher late-delivery days indicate fulfillment pressure and are worth checking against carrier or seller operations. At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Tuesday, March 06, 2018, Late Delivery Days jumped sharply to 3.10 (+161.9% vs. its typical Tuesday). Higher late-delivery days indicate fulfillment pressure and are worth checking against carrier or seller operations. At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Friday, March 23, 2018, several metrics moved unusually: Cancelled Orders jumped sharply to 1.00 (+137.4% vs. its typical Friday); Late Delivery Days dropped sharply to 0.58 (-77.8% vs. its typical Friday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Monday, April 09, 2018, several metrics moved unusually: Late Delivery Days dropped noticeably to 0.31 (-88.4% vs. its typical Monday); Cancelled Orders dropped noticeably to 0.00 (-100.0% vs. its typical Monday). Overall impact assessment: moderate.
+
+On Friday, April 13, 2018, Cancelled Orders jumped sharply to 3.00 (+472.3% vs. its typical Friday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Tuesday, April 24, 2018, Late Delivery Days dropped sharply to 0.18 (-88.4% vs. its typical Tuesday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Friday, April 27, 2018, several metrics moved unusually: Cancelled Orders jumped sharply to 1.00 (+78.4% vs. its typical Friday); Revenue jumped sharply to 40,680.04 (+47.0% vs. its typical Friday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Monday, May 21, 2018, Freight Cost dropped sharply to 4,216.62 (-46.0% vs. its typical Monday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Wednesday, May 23, 2018, several metrics moved unusually: Revenue dropped sharply to 17,501.05 (-61.4% vs. its typical Wednesday) -- context: demand movement: revenue and order volume moved together; Orders dropped sharply to 132.00 (-57.5% vs. its typical Wednesday); Freight Cost dropped sharply to 2,761.24 (-61.9% vs. its typical Wednesday). Revenue and order volume moved in the same direction, which supports a broad demand movement rather than a single-metric artifact. At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Thursday, May 24, 2018, several metrics moved unusually: Orders dropped sharply to 114.00 (-57.2% vs. its typical Thursday); Freight Cost dropped sharply to 2,201.41 (-64.2% vs. its typical Thursday); Revenue dropped noticeably to 20,073.26 (-50.4% vs. its typical Thursday) -- context: demand movement: revenue and order volume moved together. Revenue and order volume moved in the same direction, which supports a broad demand movement rather than a single-metric artifact. At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Friday, May 25, 2018, several metrics moved unusually: Orders dropped sharply to 103.00 (-55.0% vs. its typical Friday); Freight Cost dropped sharply to 2,248.45 (-57.9% vs. its typical Friday); Revenue dropped noticeably to 15,888.92 (-54.6% vs. its typical Friday) -- context: demand movement: revenue and order volume moved together. Revenue and order volume moved in the same direction, which supports a broad demand movement rather than a single-metric artifact. At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Saturday, May 26, 2018, several metrics moved unusually: Revenue dropped noticeably to 14,799.17 (-40.7% vs. its typical Saturday) -- context: demand movement: revenue and order volume moved together; Orders dropped noticeably to 99.00 (-38.1% vs. its typical Saturday). Revenue and order volume moved in the same direction, which supports a broad demand movement rather than a single-metric artifact. Overall impact assessment: moderate.
+
+On Sunday, May 27, 2018, several metrics moved unusually: Freight Cost dropped sharply to 2,222.99 (-49.8% vs. its typical Sunday); Orders dropped noticeably to 100.00 (-47.1% vs. its typical Sunday); Revenue dropped noticeably to 12,523.25 (-51.1% vs. its typical Sunday) -- context: demand movement: revenue and order volume moved together. Revenue and order volume moved in the same direction, which supports a broad demand movement rather than a single-metric artifact. At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Wednesday, May 30, 2018, several metrics moved unusually: Orders dropped noticeably to 140.00 (-45.4% vs. its typical Wednesday); Revenue dropped noticeably to 19,214.00 (-47.8% vs. its typical Wednesday) -- context: demand movement: revenue and order volume moved together; Freight Cost dropped noticeably to 3,315.08 (-42.7% vs. its typical Wednesday). Revenue and order volume moved in the same direction, which supports a broad demand movement rather than a single-metric artifact. Overall impact assessment: moderate.
+
+On Friday, June 08, 2018, Cancelled Orders dropped sharply to 0.00 (-100.0% vs. its typical Friday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Saturday, June 09, 2018, Freight Cost jumped sharply to 4,708.69 (+45.7% vs. its typical Saturday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Sunday, June 10, 2018, Cancelled Orders jumped sharply to 2.00 (+1433.3% vs. its typical Sunday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Friday, June 15, 2018, Cancelled Orders jumped sharply to 1.00 (+572.5% vs. its typical Friday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Wednesday, June 20, 2018, Cancelled Orders jumped sharply to 1.00 (+213.0% vs. its typical Wednesday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Wednesday, July 04, 2018, Cancelled Orders jumped sharply to 2.00 (+446.4% vs. its typical Wednesday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Saturday, July 07, 2018, several metrics moved unusually: Freight Cost dropped noticeably to 2,200.68 (-39.9% vs. its typical Saturday); Orders dropped noticeably to 91.00 (-34.4% vs. its typical Saturday). Overall impact assessment: moderate.
+
+On Wednesday, July 11, 2018, several metrics moved unusually: Orders dropped noticeably to 126.00 (-40.2% vs. its typical Wednesday); Freight Cost dropped noticeably to 3,605.66 (-33.5% vs. its typical Wednesday). Overall impact assessment: moderate.
+
+On Thursday, July 12, 2018, several metrics moved unusually: Cancelled Orders jumped sharply to 3.00 (+698.1% vs. its typical Thursday); Late Delivery Days jumped sharply to 0.92 (+864.4% vs. its typical Thursday). Higher late-delivery days indicate fulfillment pressure and are worth checking against carrier or seller operations. At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Saturday, July 14, 2018, Cancelled Orders jumped sharply to 2.00 (+595.5% vs. its typical Saturday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Sunday, July 15, 2018, several metrics moved unusually: Average Order Value jumped noticeably to 198.66 (+55.6% vs. its typical Sunday); Late Delivery Days jumped noticeably to 0.79 (+1067.8% vs. its typical Sunday). Higher late-delivery days indicate fulfillment pressure and are worth checking against carrier or seller operations. Overall impact assessment: moderate.
+
+On Friday, August 03, 2018, several metrics moved unusually: Cancelled Orders jumped sharply to 2.00 (+827.8% vs. its typical Friday); Freight Cost jumped sharply to 7,406.93 (+68.8% vs. its typical Friday); Orders jumped noticeably to 312.00 (+87.9% vs. its typical Friday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Saturday, August 04, 2018, Cancelled Orders jumped sharply to 3.00 (+459.5% vs. its typical Saturday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Sunday, August 05, 2018, several metrics moved unusually: Orders jumped noticeably to 274.00 (+74.1% vs. its typical Sunday); Freight Cost jumped noticeably to 6,654.00 (+58.9% vs. its typical Sunday). Overall impact assessment: moderate.
+
+On Thursday, August 23, 2018, several metrics moved unusually: Freight Cost dropped sharply to 2,509.69 (-60.4% vs. its typical Thursday); Orders dropped noticeably to 142.00 (-44.2% vs. its typical Thursday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Friday, August 24, 2018, several metrics moved unusually: Freight Cost dropped sharply to 1,671.28 (-71.0% vs. its typical Friday); Revenue dropped sharply to 9,585.71 (-67.2% vs. its typical Friday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Saturday, August 25, 2018, several metrics moved unusually: Freight Cost dropped sharply to 1,138.35 (-74.4% vs. its typical Saturday); Orders dropped sharply to 69.00 (-61.2% vs. its typical Saturday). At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Sunday, August 26, 2018, several metrics moved unusually: Freight Cost dropped sharply to 1,262.45 (-75.9% vs. its typical Sunday); Revenue dropped sharply to 8,070.71 (-71.6% vs. its typical Sunday) -- context: demand movement: revenue and order volume moved together; Orders dropped sharply to 73.00 (-63.3% vs. its typical Sunday). Revenue and order volume moved in the same direction, which supports a broad demand movement rather than a single-metric artifact. At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Monday, August 27, 2018, several metrics moved unusually: Freight Cost dropped sharply to 765.70 (-88.5% vs. its typical Monday); Average Order Value dropped sharply to 81.00 (-38.5% vs. its typical Monday); Orders dropped noticeably to 66.00 (-74.7% vs. its typical Monday); Revenue dropped noticeably to 5,345.91 (-84.4% vs. its typical Monday) -- context: demand movement: revenue and order volume moved together. Revenue and order volume moved in the same direction, which supports a broad demand movement rather than a single-metric artifact. At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Tuesday, August 28, 2018, several metrics moved unusually: Freight Cost dropped sharply to 447.31 (-92.8% vs. its typical Tuesday); Orders dropped sharply to 39.00 (-85.2% vs. its typical Tuesday); Revenue dropped sharply to 3,673.91 (-89.3% vs. its typical Tuesday) -- context: demand movement: revenue and order volume moved together. Revenue and order volume moved in the same direction, which supports a broad demand movement rather than a single-metric artifact. At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Wednesday, August 29, 2018, several metrics moved unusually: Freight Cost dropped sharply to 216.66 (-96.6% vs. its typical Wednesday); Orders dropped sharply to 11.00 (-95.6% vs. its typical Wednesday); Revenue dropped sharply to 1,546.04 (-95.4% vs. its typical Wednesday) -- context: demand movement: revenue and order volume moved together. Revenue and order volume moved in the same direction, which supports a broad demand movement rather than a single-metric artifact. At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.
+
+On Monday, September 03, 2018, several metrics moved unusually: Review Score dropped sharply to 1.00 (-77.3% vs. its typical Monday); Freight Cost dropped sharply to 21.46 (-99.5% vs. its typical Monday); Orders dropped sharply to 1.00 (-99.5% vs. its typical Monday); Revenue dropped sharply to 145.00 (-99.4% vs. its typical Monday) -- context: demand movement: revenue and order volume moved together. Revenue and order volume moved in the same direction, which supports a broad demand movement rather than a single-metric artifact. A review-score decline is a customer-experience signal; investigate delivery, product, or seller-level drivers before treating it as random noise. At least one of today's moves is severe AND has no known cause -- flagging for review. Overall impact assessment: high.

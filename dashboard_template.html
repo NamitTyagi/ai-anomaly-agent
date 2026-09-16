@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Anomaly Agent — Dashboard</title>
+<style>
+:root {
+  --bg: #f7f7f5;
+  --panel: #ffffff;
+  --text: #1a1a1a;
+  --text-muted: #6b6b6b;
+  --border: #e5e3df;
+  --accent: #c15f3c;
+  --accent-soft: #f0d9cf;
+  --severe: #b0402e;
+  --moderate: #c98a3c;
+  --good: #4a7c59;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #191817;
+    --panel: #232220;
+    --text: #eeeae5;
+    --text-muted: #9a958d;
+    --border: #37342f;
+    --accent: #e08a63;
+    --accent-soft: #3a2a22;
+    --severe: #e3705a;
+    --moderate: #e0ab5c;
+    --good: #7fb389;
+    --shadow: 0 1px 3px rgba(0,0,0,0.3);
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #191817;
+  --panel: #232220;
+  --text: #eeeae5;
+  --text-muted: #9a958d;
+  --border: #37342f;
+  --accent: #e08a63;
+  --accent-soft: #3a2a22;
+  --severe: #e3705a;
+  --moderate: #e0ab5c;
+  --good: #7fb389;
+  --shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  padding: 24px 16px 60px;
+}
+.wrap { max-width: 1080px; margin: 0 auto; }
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 18px;
+}
+h1 { font-size: 22px; margin: 0 0 4px; font-weight: 650; letter-spacing: -0.01em; }
+.subtitle { color: var(--text-muted); font-size: 13.5px; margin: 0; }
+.meta { text-align: right; font-size: 12.5px; color: var(--text-muted); }
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.stat-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  box-shadow: var(--shadow);
+}
+.stat-card .num { font-size: 26px; font-weight: 650; line-height: 1.1; }
+.stat-card .label { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+.stat-card.accent .num { color: var(--accent); }
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 22px;
+  box-shadow: var(--shadow);
+}
+.panel h2 {
+  font-size: 15px;
+  margin: 0 0 4px;
+  font-weight: 650;
+}
+.panel .panel-sub { font-size: 12.5px; color: var(--text-muted); margin: 0 0 16px; }
+
+.tabs {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.tab-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 12.5px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.tab-btn:hover { border-color: var(--accent); color: var(--text); }
+.tab-btn.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+.chart-container { position: relative; height: 330px; overflow: hidden; }
+
+.legend-note {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 10px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.legend-dot {
+  display: inline-block;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.summary-text {
+  font-size: 13.5px;
+  line-height: 1.65;
+  white-space: pre-wrap;
+  color: var(--text);
+  max-height: 380px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+.summary-text::-webkit-scrollbar { width: 6px; }
+.summary-text::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+th, td {
+  text-align: left;
+  padding: 9px 10px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+th { color: var(--text-muted); font-weight: 600; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.02em; }
+tr:last-child td { border-bottom: none; }
+.table-wrap { overflow-x: auto; }
+
+.badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+.badge.severe { background: rgba(176,64,46,0.14); color: var(--severe); }
+.badge.moderate { background: rgba(201,138,60,0.14); color: var(--moderate); }
+.badge.explained { background: rgba(74,124,89,0.14); color: var(--good); }
+.badge.unexplained { background: var(--accent-soft); color: var(--accent); }
+.dir-up::before { content: "\2191 "; }
+.dir-down::before { content: "\2193 "; }
+
+.campaign-strip {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+.campaign-chip {
+  font-size: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 10px;
+  color: var(--text-muted);
+}
+.campaign-chip b { color: var(--text); }
+
+footer {
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 32px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.chart-toolbar { display:flex; justify-content:space-between; align-items:center; gap:12px; margin: 8px 0 10px; color:var(--text-muted); font-size:12px; }
+.window-buttons { display:flex; gap:6px; }
+.window-btn { border:1px solid var(--border); background:transparent; color:var(--text-muted); border-radius:999px; padding:5px 9px; cursor:pointer; font-size:11px; }
+.window-btn.active { color:var(--text); border-color:var(--accent); background:rgba(232,137,91,.10); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div>
+      <h1>AI Anomaly Agent</h1>
+      <p class="subtitle">Seasonality-aware monitoring for real e-commerce business KPIs</p>
+    </div>
+    <div class="meta">
+      Generated __GENERATED_AT__<br>
+      Source: Olist public e-commerce data &middot; __DAYS__ days
+    </div>
+  </header>
+
+  <div class="stat-row">
+    <div class="stat-card accent">
+      <div class="num">0</div>
+      <div class="label">days flagged of <span id="totalDays">0</span></div>
+    </div>
+    <div class="stat-card">
+      <div class="num">0</div>
+      <div class="label">total anomalies</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">0</div>
+      <div class="label">with cross-metric context</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">0</div>
+      <div class="label">business KPIs tracked</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Metric trend</h2>
+    <p class="panel-sub">Trailing seasonality-aware baseline vs. actual value. Flagged points are highlighted.</p>
+    <div class="tabs" id="metricTabs"></div>
+    <div class="chart-toolbar">
+      <span id="chartWindowLabel">Showing the latest 120 observations</span>
+      <div class="window-buttons" id="windowButtons"></div>
+    </div>
+    <div class="chart-container">
+      <canvas id="metricChart"></canvas>
+    </div>
+    <div class="legend-note">
+      <span><span class="legend-dot" style="background:var(--severe)"></span>severe anomaly</span>
+      <span><span class="legend-dot" style="background:var(--moderate)"></span>moderate anomaly</span>
+      <span><span class="legend-dot" style="background:var(--good)"></span>with business context</span>
+    </div>
+    <div class="campaign-strip" id="contextStrip"></div>
+  </div>
+
+  <div class="panel">
+    <h2>What changed &mdash; business explanation</h2>
+    <p class="panel-sub">Auto-generated from the flagged anomalies above, including cross-metric context and operational reasoning.</p>
+    <div class="summary-text" id="summaryText"></div>
+  </div>
+
+  <div class="panel">
+    <h2>ML anomaly support</h2>
+    <p class="panel-sub">An Isolation Forest provides an independent machine-learning signal. Statistical detection remains the primary alert decision.</p>
+    <div class="stat-row" style="margin-bottom:0">
+      <div class="stat-card"><div class="num" id="mlScored">0</div><div class="label">days scored by ML</div></div>
+      <div class="stat-card"><div class="num" id="mlFlagged">0</div><div class="label">ML support signals</div></div>
+      <div class="stat-card"><div class="num" id="mlAgreement">0%</div><div class="label">statistical alerts also flagged by ML</div></div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Alert history</h2>
+    <p class="panel-sub">Every anomaly the agent has raised, including the business context the agent could derive from other KPIs.</p>
+    <div class="table-wrap">
+      <table id="historyTable">
+        <thead>
+          <tr><th>Date</th><th>Weekday</th><th>Metric</th><th>Value</th><th>Z</th><th>Severity</th><th>Business context</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer>Seasonality-aware statistics + ML anomaly support + explainable business rules. Built for auditability.</footer>
+</div>
+
+<script>
+const DATA = __DATA_JSON__;
+
+document.getElementById('summaryText').textContent = DATA.summary_text;
+
+// ---- stats ----
+let totalAnomalies = 0, explainedCount = 0;
+Object.values(DATA.anomalies).forEach(list => {
+  list.forEach(a => { totalAnomalies++; if (a.root_cause) explainedCount++; });
+});
+const flaggedDates = new Set();
+Object.values(DATA.anomalies).forEach(list => list.forEach(a => flaggedDates.add(a.date)));
+
+document.querySelector('.stat-card.accent .num').textContent = flaggedDates.size;
+document.getElementById('totalDays').textContent = DATA.dates.length;
+document.querySelectorAll('.stat-card .num')[1].textContent = totalAnomalies;
+document.querySelectorAll('.stat-card .num')[2].textContent = explainedCount;
+document.querySelectorAll('.stat-card .num')[3].textContent = Object.keys(DATA.series).length;
+
+// ---- ML support signal ----
+const mlScores = DATA.ml_scores || [];
+const scored = mlScores.filter(x => x.score !== null);
+const mlFlagged = scored.filter(x => x.flag).length;
+const statDates = new Set();
+Object.values(DATA.anomalies).forEach(list => list.forEach(a => statDates.add(a.date)));
+const mlDates = new Set(scored.filter(x => x.flag).map(x => x.date));
+const union = new Set([...statDates, ...mlDates]);
+const overlap = [...mlDates].filter(d => statDates.has(d)).length;
+document.getElementById('mlScored').textContent = scored.length;
+document.getElementById('mlFlagged').textContent = mlFlagged;
+document.getElementById('mlAgreement').textContent = statDates.size ? Math.round(overlap / statDates.size * 100) + '%' : '0%';
+
+
+// ---- business context chips ----
+const stripEl = document.getElementById('contextStrip');
+(DATA.context_notes || []).forEach(note => {
+  const chip = document.createElement('div');
+  chip.className = 'campaign-chip';
+  chip.textContent = note;
+  stripEl.appendChild(chip);
+});
+
+// ---- history table ----
+const tbody = document.querySelector('#historyTable tbody');
+DATA.alert_history.forEach(h => {
+  const tr = document.createElement('tr');
+  const dirClass = h.direction === 'up' ? 'dir-up' : 'dir-down';
+  const causeBadge = h.root_cause
+    ? `<span class="badge explained">context</span>`
+    : `<span class="badge unexplained">needs review</span>`;
+  tr.innerHTML = `
+    <td>${h.date}</td>
+    <td>${h.weekday}</td>
+    <td>${h.metric.replace(/_/g,' ')}</td>
+    <td class="${dirClass}">${h.value.toLocaleString(undefined,{maximumFractionDigits:2})}</td>
+    <td>${h.z_score.toFixed(2)}</td>
+    <td><span class="badge ${h.severity}">${h.severity}</span></td>
+    <td>${causeBadge}${h.root_cause ? ' &mdash; ' + h.root_cause : ''}</td>
+  `;
+  tbody.appendChild(tr);
+});
+
+// ---- chart (dependency-free canvas renderer) ----
+const metricNames = Object.keys(DATA.series);
+let currentMetric = metricNames[0];
+
+function computeBaselineSeriesLegacy(metric) {
+  // trailing same-weekday average for visual reference line (client-side, display only)
+  const values = DATA.series[metric];
+  const dates = DATA.dates.map(d => new Date(d + 'T00:00:00'));
+  const baseline = new Array(values.length).fill(null);
+  for (let i = 0; i < values.length; i++) {
+    const wd = dates[i].getDay();
+    const history = [];
+    for (let j = i - 1; j >= 0 && history.length < 8; j--) {
+      if (dates[j].getDay() === wd) history.push(values[j]);
+    }
+    if (history.length >= 3) baseline[i] = history.reduce((a,b)=>a+b,0) / history.length;
+  }
+  return baseline;
+}
+
+let chartWindow = 120;
+
+function computeBaselineSeries(metric, startIndex, endIndex) {
+  const values = DATA.series[metric];
+  const dates = DATA.dates.map(d => new Date(d + 'T00:00:00'));
+  const baseline = new Array(endIndex - startIndex).fill(null);
+  for (let local = 0; local < baseline.length; local++) {
+    const i = startIndex + local;
+    const wd = dates[i].getDay();
+    const history = [];
+    for (let j = i - 1; j >= 0 && history.length < 8; j--) {
+      if (dates[j].getDay() === wd && Number.isFinite(values[j])) history.push(values[j]);
+    }
+    if (history.length >= 3) baseline[local] = history.reduce((a,b)=>a+b,0) / history.length;
+  }
+  return baseline;
+}
+
+function renderChart(metric) {
+  const canvas = document.getElementById('metricChart');
+  const box = canvas.parentElement;
+  const dpr = window.devicePixelRatio || 1;
+  const width = Math.max(700, box.clientWidth);
+  const height = 330;
+  canvas.width = width * dpr;
+  canvas.height = height * dpr;
+  canvas.style.width = '100%';
+  canvas.style.height = height + 'px';
+  const ctx = canvas.getContext('2d');
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.clearRect(0, 0, width, height);
+
+  const allValues = DATA.series[metric];
+  const total = allValues.length;
+  const start = Math.max(0, total - chartWindow);
+  const values = allValues.slice(start);
+  const dates = DATA.dates.slice(start);
+  const baseline = computeBaselineSeries(metric, start, total);
+  const anomalyMap = {};
+  (DATA.anomalies[metric] || []).forEach(a => { anomalyMap[a.date] = a; });
+
+  const accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#e8895b';
+  const muted = getComputedStyle(document.documentElement).getPropertyValue('--text-muted').trim() || '#999';
+  const border = getComputedStyle(document.documentElement).getPropertyValue('--border').trim() || '#3a3a3a';
+  const severe = getComputedStyle(document.documentElement).getPropertyValue('--severe').trim() || '#b0402e';
+  const moderate = getComputedStyle(document.documentElement).getPropertyValue('--moderate').trim() || '#c98a3c';
+  const good = getComputedStyle(document.documentElement).getPropertyValue('--good').trim() || '#4a7c59';
+
+  const pad = {left: 64, right: 18, top: 24, bottom: 42};
+  const pw = width - pad.left - pad.right;
+  const ph = height - pad.top - pad.bottom;
+  const finite = values.filter(v => Number.isFinite(v));
+  const baseFinite = baseline.filter(v => Number.isFinite(v));
+  const all = finite.concat(baseFinite);
+  let min = Math.min(...all), max = Math.max(...all);
+  const range = max - min || Math.abs(max) || 1;
+  min -= range * 0.08; max += range * 0.08;
+  const x = i => pad.left + (i / Math.max(values.length - 1, 1)) * pw;
+  const y = v => pad.top + (max - v) / (max - min) * ph;
+
+  ctx.font = '10px Arial';
+  ctx.lineWidth = 1;
+  ctx.fillStyle = muted;
+  ctx.strokeStyle = border;
+  ctx.textAlign = 'right';
+  for (let g = 0; g <= 4; g++) {
+    const yy = pad.top + g * ph / 4;
+    const val = max - g * (max-min) / 4;
+    ctx.beginPath(); ctx.moveTo(pad.left, yy); ctx.lineTo(width-pad.right, yy); ctx.stroke();
+    ctx.fillText(Number(val).toLocaleString(undefined,{maximumFractionDigits:1}), pad.left-8, yy+3);
+  }
+
+  ctx.textAlign = 'center';
+  const labelCount = Math.min(7, values.length);
+  for (let k = 0; k < labelCount; k++) {
+    const i = Math.round(k * (values.length - 1) / Math.max(labelCount - 1, 1));
+    const d = new Date(dates[i] + 'T00:00:00');
+    const label = d.toLocaleDateString(undefined,{month:'short',day:'numeric'});
+    ctx.fillText(label, x(i), height - 15);
+  }
+
+  function drawSeries(series, color, dashed) {
+    ctx.beginPath();
+    ctx.strokeStyle = color;
+    ctx.lineWidth = dashed ? 1.2 : 1.8;
+    ctx.setLineDash(dashed ? [4,4] : []);
+    let started = false;
+    series.forEach((v,i) => {
+      if (!Number.isFinite(v)) { started = false; return; }
+      if (!started) { ctx.moveTo(x(i), y(v)); started = true; }
+      else ctx.lineTo(x(i), y(v));
+    });
+    ctx.stroke();
+    ctx.setLineDash([]);
+  }
+
+  drawSeries(baseline, 'rgba(150,150,150,0.55)', true);
+  drawSeries(values, accent, false);
+
+  values.forEach((v,i) => {
+    const a = anomalyMap[dates[i]];
+    if (!a || !Number.isFinite(v)) return;
+    const color = a.root_cause ? good : (a.severity === 'severe' ? severe : moderate);
+    ctx.beginPath(); ctx.arc(x(i), y(v), 4.2, 0, Math.PI*2);
+    ctx.fillStyle = color; ctx.fill();
+  });
+
+  ctx.textAlign = 'left';
+  ctx.font = '11px Arial';
+  ctx.fillStyle = accent; ctx.fillText(metric.replace(/_/g,' '), pad.left, 13);
+  ctx.fillStyle = muted; ctx.fillText('— baseline', pad.left + 100, 13);
+  document.getElementById('chartWindowLabel').textContent =
+    `Showing ${chartWindow === totalObservations ? 'all' : 'latest ' + Math.min(chartWindow,totalObservations)} observations`;
+}
+
+const windowEl = document.getElementById('windowButtons');
+const totalObservations = DATA.dates.length;
+[90,120,180,totalObservations].forEach(n => {
+  const btn = document.createElement('button');
+  btn.className = 'window-btn' + (n === chartWindow ? ' active' : '');
+  btn.textContent = n === totalObservations ? 'All' : n + 'd';
+  btn.onclick = () => {
+    chartWindow = n;
+    document.querySelectorAll('.window-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderChart(currentMetric);
+  };
+  windowEl.appendChild(btn);
+});
+
+const tabsEl = document.getElementById('metricTabs');
+metricNames.forEach(m => {
+  const btn = document.createElement('button');
+  btn.className = 'tab-btn' + (m === currentMetric ? ' active' : '');
+  btn.textContent = m.replace(/_/g,' ');
+  btn.onclick = () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentMetric = m;
+    renderChart(m);
+  };
+  tabsEl.appendChild(btn);
+});
+renderChart(currentMetric);
+window.addEventListener('resize', () => renderChart(currentMetric));
+</script>
+</body>
+</html>

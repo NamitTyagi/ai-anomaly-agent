@@ -1,0 +1,33 @@
+# AI Anomaly Agent — configuration
+# Real-data mode uses the anonymized Olist public e-commerce dataset.
+
+data:
+  metrics_file: "data/processed/olist_daily_metrics.csv"
+  alert_db: "alerts.db"
+
+detection:
+  baseline_occurrences: 16
+  min_occurrences: 10
+  z_threshold: 3.5
+  severe_multiplier: 1.5
+  bad_when_up:
+    - Freight_Cost
+    - Late_Delivery_Days
+    - Cancelled_Orders
+
+feedback:
+  false_positive_threshold: 2
+  relax_multiplier: 1.3
+
+alerts:
+  send_email: false
+  smtp:
+    host: ""
+    port: 587
+    user: ""
+    password: ""
+    to:
+      - ""
+  send_slack: false
+  slack:
+    webhook_url: ""

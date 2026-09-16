@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+.test_olist_raw/
+.test_olist_metrics.csv
+data/raw/*.csv
