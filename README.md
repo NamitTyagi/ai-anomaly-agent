@@ -442,7 +442,7 @@ Potential extensions include:
 
 ### Does the system identify the root cause?
 
-> No. It identifies unusual behavior and provides evidence from related KPIs. The contextual signals help an analyst investigate possible causes rather than claiming a proven root cause.
+> No. It identifies unusual behavior and provides evidence from related KPIs. The contextual signals help an analyst investigate possible causes rather than claiming a proven root cause..
 
 ---
 
