@@ -1,6 +1,6 @@
 AI Anomaly Agent Report
 Source file: olist_daily_metrics.csv
-Generated: 2026-09-26 12:02
+Generated: 2026-09-27 12:39
 Statistical anomalies detected: 183
 ML support layer: independent Isolation Forest signal
 --------------------------------------------------
